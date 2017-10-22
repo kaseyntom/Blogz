@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .title{
+        font-weight:bold;
+        font-size:200%;
+        text-align:center;
+    }
+    .body{
+        font-size:200%;
+    }
+</style>
+    
+    
+    {% for post in ind_post %}
+        <a href="./singlepost?id={{post.id}}"><span class='title'><p>{{post.name}}</p></span></a>
+        <br>
+        <p class="body">{{post.body}}</p>
+        <p>Written by <a href="./blog?user={{post.owner.id}}">{{post.owner.username}}</p></a>
+        <hr />
+    {% endfor %}
+
+{% endblock %}

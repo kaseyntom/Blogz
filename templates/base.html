@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <style>
+            a{
+                font-size: 200%;
+            }
+            
+        </style>
+    </head>
+<body>
+
+    <div>  
+        <a href='/blog'>All Posts</a> &nbsp &nbsp &nbsp
+        <a href='/newpost'>Add A Blog Entry</a>&nbsp &nbsp
+        <a href='/'>Home</a>&nbsp &nbsp  &nbsp
+        <a href='/login'>Log In</a> &nbsp  &nbsp &nbsp
+        <a href='/logout'>Log Out</a>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        <ul>
+            {% for category, message in messages %}
+            <li class"{{category}}">{{message}}</li>
+            {% endfor %}
+        </ul>
+        {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html> 

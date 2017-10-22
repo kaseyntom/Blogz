@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <style>
+        h1{
+            text-align:left;
+            font-size:150%;
+        }
+        .title{
+            font-weight:bold;
+        }
+        li{
+            font-size:100%;
+        }
+    </style>
+
+    <h1>Bloggers</h1>
+        {% if users|length == 0 %}
+            <p>No Bloggers Yet</p>
+        {% else %}
+            {% for user in users %} 
+                <a href="?user={{user.id}}"><span class='title'><li>{{user.username}}</li></span></a>
+            {% endfor %}
+    {% endif %}
+{% endblock %}

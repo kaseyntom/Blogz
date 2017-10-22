@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .error {
+        color:red;
+    }
+</style>
+<h1>Sign up to Blog!</h1>
+<form action="/signup" method="post">
+            <label>
+                <input name="username" type="text"/>Username</label>
+                    
+                <br> <br>
+            <label>
+                <input name="password" type="password"/>Password</label>
+                    
+                <br> <br>
+            <label>
+                <input name="verify" type="password"/>Verify Password</label>
+                    
+        <input type="submit" value="Sign Up!"/>
+</form>

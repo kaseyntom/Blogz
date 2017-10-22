@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <style>
+        h1{
+            text-align:center;
+            font-size:200%;
+        }
+        .title{
+            font-weight:bold;
+        }
+        .body{
+            font-size:200%;
+        }
+    </style>
+
+    <h1>The Blog</h1>
+        {% if blogs|length == 0 %}
+            <p>No Entries Yet</p>
+        {% else %}
+            {% for blog in blogs %} 
+                <a href="./singlepost?id={{blog.id}}"><span class='title'><li>{{blog.name}}</li></span></a>
+                <br>
+                <li class="body">{{blog.body}}</li>
+                <li>Written by<a href="?user={{blog.owner.id}}">{{blog.owner.username}}</li></a>
+                <hr />
+            {% endfor %}
+    {% endif %}
+{% endblock %}

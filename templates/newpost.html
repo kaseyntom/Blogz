@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <style>
+            form{
+                padding: 20px;
+                margin: 0 auto;
+                width: 540px;
+                font: 16px Roman;
+                border-radius: 10px;
+            }
+            textarea {
+                margin: 10px 0;
+                width: 540px;
+                height: 120px;
+            }
+            h1 {
+                text-align:center;
+            }
+            .error {color:red;
+            }
+            #title{
+                font-weight: 900;
+            }
+        </style>
+    <h1>Build A Blog</h1>
+        <form action='/newpost' method='post'>
+            <label>New Title:</label>
+                <input type="text" name='name' />
+                    <span class='error'>{{new_title_error}}</span>
+            <textarea name='body'></textarea>
+                    <span class='error'>{{new_entry_error}}</span>
+                    <br>
+                <input type="submit" value='Add Entry' />
+        </form>
+
+{% endblock %}
